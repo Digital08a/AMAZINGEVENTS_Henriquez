@@ -38,25 +38,39 @@
     <main class="bg-body-primary">
         <section>
             <div class="position-relative">
-                <h1 class="display-1 text-primary z-1 position-absolute top-50 start-50 translate-middle">Upcoming
-                    Events</h1>
+                <h1 class="display-1 text-primary z-1 position-absolute top-50 start-50 translate-middle">UPCOMING EVENTS</h1>               
                 <div>
                     <div class="carousel-inner">
                         <img src="./images/optional_banner_2.jpg" class="d-block w-100 banner" alt="Banner Image">
                     </div>
                     <span class="carousel-control-prev">
-                        <a href="./index.html"><span class="carousel-control-prev-icon"></span></a>
+                        <a href="index.html"><span class="carousel-control-prev-icon"></span></a>
                     </span>
                     <span class="carousel-control-next">
-                        <a href="./past_events.html"><span class="carousel-control-next-icon"></span></a>
+                        <a href="past_events.html"><span class="carousel-control-next-icon"></span></a>
                     </span>
                 </div>
             </div>
-        </section>
-        <div class="p-5">
-            <div class="container"></div>
-            <div class="row" id="cardsContainer"></div>
+        </section> 
+        <div class="container-fluid">
+            <form class="row" role="search">
+                <div class="col-12 col-lg-9 text-center">
+                    <div class="form-check" id="checkboxContainer"></div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <div class="form-group m-2">
+                        <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
+                    </div>
+                </div>
+            </form>
         </div>
+        <div class="p-5">
+            <div id="noResultsMessage" class="danger text-center d-none">
+                <h2>No available events :(</h2>
+            </div>
+            <div class="container"></div>
+            <div class="row" id="cardsContainer"></div>          
+        </div>        
     </main>
     <footer class="bg-primary-subtle">
         <div class="container">

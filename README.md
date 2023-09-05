@@ -1,28 +1,26 @@
 # AMAZING EVENTS 
 
-## Interpretación
-Las consignas me resultaron vagas y algo confusas
-Home: Una card por cada evento? no encuentro manera de hacerlo dinamico sin cambiar la consigna (una alternativa de dinamismo podría poner un botón llamado More card que al precionar agregue y otro quite por lo que no se vería tan cargada la página) pero comprendi lo siguiente, en vez de que estén dentro de html, que se encuentren en JS
+✅Se corrige rama a sprint3 como lo pide la consigna
 
 
 📌 Entrega en plataforma:
-link a repo en github con nombre: AMAZINGEVENTS_APELLIDO en rama task2
+link a repo en github con nombre: AMAZINGEVENTS_APELLIDO en rama sprint3
 (sin zip/rar)
 
 📌 Consignas:
-En home, debe haber una card por cada evento en el array de eventos de data
-En past events debe haber una card por cada evento en el array de eventos de data cuya fecha sea anterior a la currentDate de data
-En upcoming events debe haber una card por cada evento en el array de eventos de data cuya fecha sea posterior a la currentDate de data
+Tanto en home como en past y upcoming events deben:
+- generar los checkbox dinámicamente, uno por cada categoría que exista en las categorías de eventos
+- tanto el campo de búsqueda como los checkbox deben ser funcionales y filtrar los eventos de esa página
+- búsqueda y checkbox deben funcionar individualmente y en conjunto
+- cuando no hay resultados, mostrar un mensaje amigable al usuario
+los botones de las cards de eventos deben llevar a la página de details donde se carga dinámicamente en base al parámetro de la URL la información completa del evento
 
 📌 Recordatorios:
-Las tarjetas deben ser generadas de forma dinámica, con js, lo mismo el filtrado de eventos pasados y futuros
-Un archivo js por cada sección, opcionalmente pueden tener otro archivo general para todas también
-Usen funciones para modularizar el código y no repetirlo en cada archivo!
-En las tarjetas debe aparecer imagen, título, descripción, precio y botón para ir a detalles, como en el mockup de la consigna 1,
+Un archivo js por cada sección, pueden tener otro archivo general para todas también (pongan ahí todo lo que se repita así no repiten código)
+Usen funciones para modularizar el código y no repetirlo en cada archivo
+Usen funciones de orden superior donde sean aplicables
 
-📌 Los materiales de la tarea (data.txt) están en la plataforma
-
-📚 Entrega: Lunes 28/8 10hs
+📚 Entrega: Lunes 05/09 10hs
 
 ## Mockup
 
