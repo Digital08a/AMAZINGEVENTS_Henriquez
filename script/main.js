@@ -1,9 +1,24 @@
 let card = "";
 let checkbox = "";
-let categories = {}; // Almacena las categorías únicas
+let data = {};
+let events = [];
+let categories = []; // Almacena las categorías únicas
 let checkboxContainer = document.getElementById('checkboxContainer');
 let cardsContainer = document.getElementById('cardsContainer');
 let searchEvent = document.querySelector('input[name=search]');
+let urlApi = 'https://mindhub-xj03.onrender.com/api/amazing';
+
+async function getEventsData() {
+    try {
+        const response = await fetch(urlApi); //Returns a promise 
+        data = await response.json(); //Returns data
+        events = data.events;
+        categories = getCategories(events);
+
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 // Función para crear las tarjetas de eventos
 function createCards(arrayEvents) {
@@ -29,23 +44,26 @@ function createCards(arrayEvents) {
     cardsContainer.innerHTML = card;
 }
 
+function getCategories(arrayEvents) {
+    let categories = [];
+    for (const event of arrayEvents) {
+        let category = event.category;
+        if (!categories.includes(event.category)) {
+            categories.push(category);
+        }
+    }
+    return categories;
+}
 // Función para crear los checkboxes de categorías
-function createCategories(arrayEvents) {
+function createCategories(categories) {
     checkbox = "";
     // Filtra las categorías que están repetidas 
-    arrayEvents.forEach(event => {
-        const category = event.category;
-
-        // Verifica si la categoría ya existe en el objeto
-        if (!categories[category]) {
-            categories[category] = true; // Marca la categoría como existente
-
-            checkbox += `
+    categories.forEach(category => {
+        checkbox += `
                 <label class="form-check-label p-3">
                     <input class="form-check-input" type="checkbox" name="${category}" value="">
                     <span class="form-option">${category}</span>
                 </label>`;
-        }
     });
     checkboxContainer.innerHTML = checkbox;
 }
@@ -87,9 +105,10 @@ function filterByCategories(arrayEvents) {
 }
 
 // Función para cargar el contenido
-function loadEventsContent(arrayEvents) {
-    createCards(arrayEvents);
-    createCategories(arrayEvents);
-    filterBySearch(arrayEvents);
-    filterByCategories(arrayEvents);
+function loadEventsContent(eventsData) {
+    console.log(eventsData);
+    createCards(eventsData);
+    createCategories(categories);
+    filterBySearch(eventsData);
+    filterByCategories(eventsData);
 }
